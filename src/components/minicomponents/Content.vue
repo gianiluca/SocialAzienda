@@ -150,11 +150,11 @@ export default {
         <div class="feeds" id="contenitorepost" style="position: relative;">
           <div v-for="post in posts" class="feed" style="width: 100%" :key="post.id">
             <div class="head">
-              <div class="user">
+              <div class="user" style="width: 100%;">
                 <div class="profile-picture" id="imguserpost"><img :src="post.user.immagineDiProfiloUser" alt=""></div>
                 <div class="info">
                   <h4><router-link :to="'/Profile/' + post.user.usernamePubblicante">{{ post.user.usernamePubblicante
-                  }}</router-link></h4><small>{{ post.dataPubblicazione.substring(0,10) }}</small>
+                  }}</router-link></h4><small>Monticello Brianza {{ post.dataPubblicazione.substring(0,10) }}</small>
                 </div>
               </div>
             </div>
