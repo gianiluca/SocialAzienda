@@ -183,7 +183,7 @@ export default {
                   </div>
                   <div class="col-md-6 col-lg-7 col-xl-8">
                     <div id="chat" class="pt-3 pe-3" data-mdb-perfect-scrollbar="true"
-                      style="position: relative; height: 400px;">
+                      style="position: relative; max-height: 400px;">
                     </div>
                     <div id="btchat" class="text-muted d-flex justify-content-start align-items-center pe-3 pt-3 mt-2">
                       <img :src="this.store.immagineProfilo" alt="avatar 3"

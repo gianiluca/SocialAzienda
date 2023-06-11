@@ -98,7 +98,7 @@ export default {
                                     <h3>{{ user.userName }}</h3>
                                 </div>
                             </div>
-                            <span class="edit"><i class="fa-solid fa-ellipsis"></i></span>
+                            
                         </div>
 
                         <div class="feed-picture" @click="uploadImage">
@@ -114,12 +114,12 @@ export default {
                                             <div class="error-msg">{{ error.$message }}</div>
                                         </div>
                                     </span>
-                                    <div class="col-9">
-                                        <input type="text" placeholder="Inserisci la descrizione del post"
-                                            id="descrizionePost" class="prova" v-model="this.description">
+                                    <div class="col-md-9 col-12">
+                                        <input type="text" placeholder="Inserisci la descrizione"
+                                            id="descrizionePost" class="prova p-2" v-model="this.description">
                                     </div>
-                                    <div class="col-3">
-                                        <button type="button" id="or" value="Post" @click="Submit"
+                                    <div class="col-md-3 col-12 justify-content-center" style="display: grid;">
+                                        <button type="button" id="or" @click="Submit"
                                             class="btn btn-primary">Post</button>
                                     </div>
                                 </div>
@@ -140,7 +140,7 @@ export default {
     justify-content: space-between;
     margin-top: 1rem;
     background: var(--white-color);
-    padding: .4rem var(--card-padding);
+
     border-radius: var(--border-radius);
 }
 
@@ -153,7 +153,7 @@ export default {
     text-align: left;
 
     background-color: whitesmoke;
-    padding: var(--btn-padding);
+    /* padding: var(--btn-padding); */
     font-weight: 500;
     border-radius: var(--border-radius);
     width: 100%;
@@ -185,8 +185,9 @@ export default {
 }
 
 .centro .feeds .profile-picture img {
-    width: 2.7rem;
-    height: 2.7rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
     object-fit: cover;
     object-position: center;
 }

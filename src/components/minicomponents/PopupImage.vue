@@ -101,6 +101,20 @@ export default {
     z-index: 99999;
     box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.528);
 }
+
+@media screen and (max-width: 992px) {
+    .pop-upManage{
+        left: 30%;
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .pop-upManage{
+        left: 20%;
+        width: 60%;
+    }
+}
 .pop-upManage .immagineUser{
   position: absolute;
   cursor: pointer;

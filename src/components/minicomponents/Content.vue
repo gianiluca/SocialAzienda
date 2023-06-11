@@ -154,9 +154,9 @@ export default {
                 <div class="profile-picture" id="imguserpost"><img :src="post.user.immagineDiProfiloUser" alt=""></div>
                 <div class="info">
                   <h4><router-link :to="'/Profile/' + post.user.usernamePubblicante">{{ post.user.usernamePubblicante
-                  }}</router-link></h4><small>Monticello Brianza {{ post.dataPubblicazione }}</small>
+                  }}</router-link></h4><small>{{ post.dataPubblicazione.substring(0,10) }}</small>
                 </div>
-              </div><span class="edit"><i class="fa-solid fa-ellipsis"></i></span>
+              </div>
             </div>
             <div class="feed-picture" @click="openPopup(post.id, post.user.usernamePubblicante)"><img :src="post.media"
                 alt=""></div>
@@ -164,9 +164,8 @@ export default {
               <div class="interaction-buttons">
                 <span @click="likeDislike(post.isLiked, post.id)"><i class="fa-solid fa-heart" :id="post.id"
                     :style="{ color: post.isLiked }" ref="like"></i></span>
-                <span class="ms-2"><i class="fa-solid fa-comment-dots"></i></span>
+                <span class="ms-2" @click="openPopup(post.id, post.user.usernamePubblicante)"><i class="fa-solid fa-comment-dots"></i></span>
               </div>
-              <div class="bookmark"><span><i class="fa-solid fa-bookmark"></i></span></div>
             </div>
             <div v-if="post.likes.length != 0" class="liked-by">
               <span v-if="post.likes.length > 1"><img :src="post.likes[0].immagineDiProfiloUser" alt=""></span>

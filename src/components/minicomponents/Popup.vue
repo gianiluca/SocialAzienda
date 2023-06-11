@@ -197,7 +197,7 @@ export default {
                                 </span>
                                 <div class="create-comment row">
                                     <div class="col-md-6 col-12" style="height: auto;">
-                                        <input type="text" class="m-2" placeholder="Commenta" id="create-post" v-model="commento">
+                                        <input type="text" class="m-2" placeholder="Comment" id="create-post" v-model="commento">
                                     </div>
                                     <div class="col-md-6 col-12" style="height: auto;">
                                         <button type="button" class="btn btn-primary m-2" @click="SubmitComment">Comment</button>

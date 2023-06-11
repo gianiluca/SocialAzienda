@@ -19,6 +19,7 @@ export default {
 </script>
 
 <template>
+    <PopupImageComponent />
     <NavbarComponent />
     <section class="home">
         <div class="container" style="min-width: 80%;">

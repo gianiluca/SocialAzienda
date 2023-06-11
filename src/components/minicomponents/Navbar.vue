@@ -75,9 +75,9 @@ export default {
           </div>
         </div>
         <div class="col-md-6 col-8 " id="search">
-          <div class="search-box">
+          <div class="search-box m-0">
             <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="search" placeholder="Search for user" v-model="inputValue" @click="aprisearch"
+            <input type="search" class="ms-2" placeholder="Search for user" v-model="inputValue" @click="aprisearch"
               @input="searchForUser">
             <div class="searchhead" ref="cerca">
               <div class="utenti">
@@ -167,7 +167,7 @@ nav .container .row {
   background: var(--light-color);
   border-radius: var(--border-radius);
   padding: var(--search-padding);
-  width: 75%;
+  width: 100%;
   display: flex;
   overflow: hidden;
   margin-left: 14%;
@@ -175,7 +175,7 @@ nav .container .row {
 
 .search-box input[type="search"] {
   background: transparent;
-  width: 30vw;
+  width: 100%;
   margin-left: 2rem;
   font-size: .9rem;
   color: var(--dark-color);
