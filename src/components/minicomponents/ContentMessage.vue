@@ -43,10 +43,10 @@ export default {
       this.activebutton = true
       this.store.userforMess = dest
       this.apriChat(dest)
-      const client = new Paho.Client('broker.hivemq.com',        // (4)
-        8000, user);
-
+      const client = new Paho.Client('broker.emqx.io',        // (4)
+        8084, user);
       client.connect({
+        useSSL: true,
         onSuccess: () => {
           client.subscribe('socialvg' + user);
         }
@@ -56,8 +56,10 @@ export default {
       };
     },
     Publishe(user, dest, message) {
-      const client = new Paho.Client('broker.hivemq.com', 8000, user);
+      const client = new Paho.Client('broker.emqx.io',        // (4)
+        8084, user);
       client.connect({
+        useSSL: true,
         onSuccess: () => {
           $.ajax({
             url: 'https://socialccapi.azurewebsites.net/api/v1/ChatApi/MandaMessaggio?usernameDestinatario=' + dest,
@@ -76,7 +78,7 @@ export default {
               this.avviaClientMqttNoC(user, dest)
               document.getElementById('in').value = ''
             },
-            error: (result) => {  }
+            error: (result) => { }
           });
         }
       });
@@ -109,8 +111,10 @@ export default {
       });
     },
     avviaClientMqttNoC(user, dest) {
-      const client = new Paho.Client('broker.hivemq.com', 8000, user);
+      const client = new Paho.Client('broker.emqx.io',        // (4)
+        8084, user);
       client.connect({
+        useSSL: true,
         onSuccess: () => {
           client.subscribe('socialvg' + user);
         }
@@ -146,7 +150,7 @@ export default {
               <div class="card-body">
                 <div class="row">
                   <div class="col-md-6 col-lg-5 col-xl-4 mb-4 mb-md-0">
-                    <div class="p-3" id="userslist" >
+                    <div class="p-3" id="userslist">
                       <div class="input-group rounded mb-3">
                         <input type="search" class="form-control rounded" id="searchcus" placeholder="Search"
                           @input="prendiUtenti" aria-label="Search" aria-describedby="search-addon" v-model="input" />
@@ -182,8 +186,8 @@ export default {
                       style="position: relative; height: 400px;">
                     </div>
                     <div id="btchat" class="text-muted d-flex justify-content-start align-items-center pe-3 pt-3 mt-2">
-                      <img :src="this.store.immagineProfilo"
-                        alt="avatar 3" style="width: 50px; height: 45px; border-radius: 50%; object-fit: cover;">
+                      <img :src="this.store.immagineProfilo" alt="avatar 3"
+                        style="width: 50px; height: 45px; border-radius: 50%; object-fit: cover;">
                       <input type="text" id="in" class="form-control form-control-lg" placeholder="Type message"
                         v-model="message">
                       <a v-if="this.activebutton == true" class="ms-3" style="cursor: pointer;"
@@ -204,16 +208,18 @@ export default {
 <style src="../../assets/mdb.min.css" scoped></style>
 
 <style scoped>
-#userslist{
-    max-height: 450px;
-    overflow-y: scroll;
-  }
+#userslist {
+  max-height: 450px;
+  overflow-y: scroll;
+}
+
 @media screen and (max-width: 768px) {
-  #userslist{
+  #userslist {
     max-height: 200px;
     overflow-y: scroll;
   }
 }
+
 #user {
   overflow-y: auto;
 }
