@@ -72,7 +72,7 @@ export default {
             dataType: 'json',
             success: (result) => {
               var imgprofile = this.store.immagineProfilo
-              document.getElementById('chat').innerHTML = document.getElementById('chat').innerHTML + '<div class="d-flex flex-row justify-content-end"><div><p class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary">' + message + '</p></div><img src="' + imgprofile + '"alt="avatar 1" style="width: 45px; height: 100%;"></div>';
+              document.getElementById('chat').innerHTML = document.getElementById('chat').innerHTML + '<div class="d-flex flex-row justify-content-end"><div><p class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary">' + message + '</p></div><img src="' + imgprofile + '"alt="avatar 1" style="object-fit: cover; border-radius: 50%; height: 40px; width: 40px;"></div>';
               client.publish("socialvg" + dest, "mandato", 1, false)
               this.scrolldown();
               this.avviaClientMqttNoC(user, dest)
