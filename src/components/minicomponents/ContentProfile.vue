@@ -77,6 +77,7 @@ export default {
         openPopup(id, username) {
             this.store.active = true
             this.store.idForPopup = id
+            this.store.usernameForPopup = username
         },
         openPopupImg() {
             this.store.activeImgChange = true
@@ -167,7 +168,7 @@ export default {
                     <div v-for="posts in postsinthree" class="row">
                         <div v-for="post in posts" class="col-sm-4">
                             <div class="post">
-                                <img @click="openPopup(post.id)" :src="post.media" alt="">
+                                <img @click="openPopup(post.id, this.$route.params.username)" :src="post.media" alt="">
                             </div>
                         </div>
                     </div>
