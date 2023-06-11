@@ -1,0 +1,76 @@
+:root {
+  --hue-primary-color: 252;
+  --dark-color-lightness: 17%;
+  --light-color-lightness: 95%;
+  --white-color-lightness: 100%;
+
+  --dark-color: hsl(252, 30%, var(--dark-color-lightness));
+  --light-color: hsl(252, 30%, var(--light-color-lightness));
+  --gray-color: hsl(var(--hue-primary-color), 15%, 65%);
+  --primary-color: #3586ff;
+  --secondary-color: hsl(252, 100%, 90%);
+  --success-color: hsl(120, 95%, 65%);
+  --danger-color: hsl(0, 95%, 65%);
+  --white-color: hsl(252, 30%, var(--white-color-lightness));
+  --black-color: hsl(252, 30%, 10%);
+
+  --border-radius: 2rem;
+  --card-border-radius: 1rem;
+  --btn-padding: .6rem 2rem;
+  --search-padding: .6rem 1rem;
+  --card-padding: 1rem;
+
+  --sticky-top-left: 5.4rem;
+  --sticky-top-right: -18rem;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  border: none;
+}
+
+body {
+  font-family: 'Montserrat Alternates', sans-serif;
+  color: var(--dark-color);
+  background: var(--light-color);
+  overflow-x: hidden;
+}
+
+.btn {
+  display: inline-block;
+  padding: var(--btn-padding);
+  font-weight: 500;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 300ms ease;
+  font-size: .9rem;
+}
+
+.btn:hover {
+  opacity: .8;
+}
+
+.btn-primary {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.text-bold {
+  font-weight: 500;
+}
+
+.text-muted {
+  color: var(--gray-color)
+}
+
+a{
+  text-decoration: none;
+  cursor: pointer;
+}
