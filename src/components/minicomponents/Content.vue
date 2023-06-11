@@ -77,7 +77,6 @@ export default {
       this.$refs.uploadstorybut.click();
     },
     storyPrew() {
-      console.log("ciao")
       let reader = new FileReader();
       reader.readAsDataURL(this.$refs.uploadstorybut.files[0]);
       reader.onload = () => {
@@ -86,7 +85,6 @@ export default {
       }
     },
     PostStory() {
-      console.log('dai che ci siamo')
       var form = new FormData();
       form.append("image", this.$refs.uploadstorybut.files[0])
 
@@ -101,7 +99,6 @@ export default {
       };
       $.ajax(settings).done((response) => {
         var jx = JSON.parse(response);
-        console.log(jx.data.url);
         axios.post('https://socialccapi.azurewebsites.net/api/v1/StoriaAPI/CreaStoria', {
           media: jx.data.url
         }).then((response) => {

@@ -82,11 +82,9 @@ export default {
             this.store.activeImgChange = true
         },
         async Follow(username) {
-            console.log(username)
             axios.defaults.headers.common['Authorization'] = 'Bearer ' + this.store.token
             await axios.post('https://socialccapi.azurewebsites.net/api/v1/FollowAPI/SeguiUtente?utenteDaSeguire=' + username, {})
                 .then((response) => {
-                    console.log(response)
                     this.store.key++
                     var url = this.$route.path
                     this.$router.push(url)
@@ -102,7 +100,6 @@ export default {
                 }
             })
                 .then((response) => {
-                    console.log(response.data.result)
                     this.store.key++
                     var url = this.$route.path
                     this.$router.push(url)

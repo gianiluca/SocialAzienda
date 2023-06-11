@@ -46,12 +46,10 @@ export default {
                     id: id
                 }
             }).then((response) =>{
-                console.log(response.data.result)
                 this.chiudipopStorie()
                 this.store.key++
                 this.$router.push('/')
             }).catch((response) => {
-                console.log(response)
             })
         }
     },
