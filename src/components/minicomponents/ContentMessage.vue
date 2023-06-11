@@ -2,6 +2,7 @@
 import axios from 'axios'
 import Paho from 'paho-mqtt'
 import { useSessionStore } from '../../stores/sessionStore'
+import $ from 'jquery'
 
 export default {
   setup() {

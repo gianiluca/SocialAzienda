@@ -1,6 +1,7 @@
 <script>
 import axios from 'axios'
 import { useSessionStore } from '../../stores/sessionStore'
+import $ from 'jquery'
 
 export default {
     setup() {
@@ -130,6 +131,20 @@ export default {
     z-index: 99999;
     box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.528);
     animation: popup 1s;
+}
+
+@media screen and (max-width: 992px) {
+    .pop-upStorie{
+        left: 30%;
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .pop-upStorie{
+        left: 20%;
+        width: 60%;
+    }
 }
 
 @keyframes popup {

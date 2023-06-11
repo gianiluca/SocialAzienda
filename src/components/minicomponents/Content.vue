@@ -1,6 +1,7 @@
 <script>
 import { useSessionStore } from '../../stores/sessionStore'
 import axios from 'axios'
+import $ from 'jquery'
 
 export default {
   setup() {
@@ -193,6 +194,11 @@ export default {
 </template>
 
 <style scoped>
+@media screen and (max-width: 576px) {
+  .imp{
+    display: none;
+  }
+}
 .previewstory {
   display: none;
   width: 30%;
@@ -312,7 +318,6 @@ export default {
 .centro .imp {
   width: 2.7rem;
   height: 2.7rem;
-  background-color: aqua;
   border-radius: 50%;
 }
 

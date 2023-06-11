@@ -1,6 +1,7 @@
 <script>
 import { useSessionStore } from '../../stores/sessionStore'
 import axios from 'axios'
+import $ from 'jquery'
 
 export default {
     setup() {

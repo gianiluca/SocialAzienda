@@ -3,6 +3,7 @@ import { useSessionStore } from '../../stores/sessionStore'
 import axios from 'axios'
 import { useVuelidate } from '@vuelidate/core'
 import { required, alpha } from '@vuelidate/validators'
+import $ from 'jquery'
 
 export default {
     setup() {

@@ -1,6 +1,7 @@
 <script>
 import { useSessionStore } from '../../stores/sessionStore'
 import axios from 'axios'
+import $ from 'jquery'
 
 export default {
   setup() {
@@ -66,14 +67,14 @@ export default {
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
       <div class="row">
-        <div class="col-md-3 col-6">
+        <div class="col-md-3 col-2">
           <div class="leftNav">
             <div class="logo-picture">
               <img src="../../assets/logo.png">
             </div>
           </div>
         </div>
-        <div class="col-xs-6 col-auto " id="search">
+        <div class="col-md-6 col-8 " id="search">
           <div class="search-box">
             <i class="fa-solid fa-magnifying-glass"></i>
             <input type="search" placeholder="Search for user" v-model="inputValue" @click="aprisearch"
@@ -101,9 +102,9 @@ export default {
             </div>
           </div>
         </div>
-        <div class="col-md-3 col-6">
+        <div class="col-md-3 col-2">
           <div class="rightNav">
-            <router-link to="/CreatePost" for="#create-post" class="btn btn-primary">Create</router-link>
+            <router-link to="/CreatePost" id="createbut" for="#create-post" class="btn btn-primary">Create</router-link>
             <div class="dropdown">
               <div class="profile-picture dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                 <img :src="store.immagineProfilo" alt="">
@@ -131,7 +132,7 @@ export default {
 
 <style scoped>
 @media screen and (max-width: 768px) {
-  #search {
+  #createbut {
     display: none;
   }
 }
@@ -251,6 +252,18 @@ nav .leftNav img {
   background: var(--white-color);
   max-height: 300px;
   border-radius: 20px;
+}
+
+@media screen and (max-width: 992px) {
+  .searchhead{
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .searchhead{
+    width: 65%;
+  }
 }
 
 .searchhead::-webkit-scrollbar {

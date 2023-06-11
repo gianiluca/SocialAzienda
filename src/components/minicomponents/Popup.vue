@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useSessionStore } from '../../stores/sessionStore'
 import { useVuelidate } from '@vuelidate/core'
 import { required } from '@vuelidate/validators'
+import $ from 'jquery'
 
 export default {
     setup() {
@@ -194,13 +195,17 @@ export default {
                                         <div class="error-msg">{{ error.$message }}</div>
                                     </div>
                                 </span>
-                                <div class="create-comment">
-                                    <input type="text" placeholder="Commenta" id="create-post" v-model="commento"><input
-                                        type="submit" value="Post" class="btn btn-primary" @click="SubmitComment">
+                                <div class="create-comment row">
+                                    <div class="col-md-6 col-12" style="height: auto;">
+                                        <input type="text" class="m-2" placeholder="Commenta" id="create-post" v-model="commento">
+                                    </div>
+                                    <div class="col-md-6 col-12" style="height: auto;">
+                                        <button type="button" class="btn btn-primary m-2" @click="SubmitComment">Comment</button>
+                                    </div>
                                 </div>
-                                <div class="message" v-for="comment in comments">
-                                    <div class="row">
-                                        <div class="profile-picture col-3">
+                                <div class="message mb-0" v-for="comment in comments">
+                                    <div class="row" style="width: 100%;">
+                                        <div class="profile-picture col-3 ps-2">
                                             <img class="img-fluid" :src="comment.user.immagineDiProfiloUser" alt="">
                                         </div>
                                         <div class="message-body col-7">
@@ -239,14 +244,21 @@ export default {
     position: absolute;
     background-color: white;
     overflow: hidden;
-    left: 25%;
+    left: 18%;
     top: 25%;
     border-radius: 25px;
-    width: 50%;
+    width: 65%;
     transition: all 5s ease-in-out;
     z-index: 99999;
     box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.528);
     animation: popup 1s;
+}
+@media screen and (max-width: 768px) {
+    .pop-up{
+        top: 15%;
+        max-height: 80%;
+        overflow-y: auto;
+    }
 }
 
 @keyframes popup {
@@ -283,8 +295,6 @@ export default {
     position: absolute;
     background-color: transparent;
     backdrop-filter: blur(10px) brightness(0.8);
-
-
     height: 100%;
     width: 100%;
     z-index: 3;
@@ -292,11 +302,8 @@ export default {
 }
 
 .popupesfondo {
-
     position: absolute;
     background-color: transparent;
-
-
     display: none;
     height: 100%;
     width: 100%;
