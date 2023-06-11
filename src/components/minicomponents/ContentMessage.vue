@@ -72,7 +72,7 @@ export default {
             dataType: 'json',
             success: (result) => {
               var imgprofile = this.store.immagineProfilo
-              document.getElementById('chat').innerHTML = document.getElementById('chat').innerHTML + '<div class="d-flex flex-row justify-content-end"><div><p class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary" id="messageBodyp">' + message + '</p></div><img src="' + imgprofile + '"alt="avatar 1" style="object-fit: cover; border-radius: 50%; height: 40px; width: 40px;"></div>';
+              document.getElementById('chat').innerHTML = document.getElementById('chat').innerHTML + '<div class="d-flex flex-row justify-content-end"><p id="messageBody" class="messageBody small p-2 me-3 mb-1 text-white rounded-3 bg-primary">' + message + '</p><img src="' + imgprofile + '"alt="avatar 1" style="object-fit: cover; border-radius: 50%; height: 40px; width: 40px;"></div>';
               client.publish("socialvg" + dest, "mandato", 1, false)
               this.scrolldown();
               this.avviaClientMqttNoC(user, dest)
@@ -97,10 +97,10 @@ export default {
           if (response.result != null) {
             for (let i = 0; i < response.result.length; i++) {
               if (response.result[i].mittente == true) {
-                innhtml = innhtml + '<div class="d-flex flex-row justify-content-end"><div><p class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary" id="messageBodyp">' + response.result[i].contenuto + '</p></div><img src="' + imgprofile + '"alt="avatar 1" style="object-fit: cover; border-radius: 50%; height: 40px; width: 40px;"></div>';
+                innhtml = innhtml + '<div class="d-flex flex-row justify-content-end"><p class="messageBody small p-2 me-3 mb-1 text-white rounded-3 bg-primary">' + response.result[i].contenuto + '</p><img src="' + imgprofile + '"alt="avatar 1" style="object-fit: cover; border-radius: 50%; height: 40px; width: 40px;"></div>';
               }
               else {
-                innhtml = innhtml + ' <div class="d-flex flex-row justify-content-start"><img src="' + this.store.immagineProfiloDest + '"alt="avatar 1" style="object-fit: cover; border-radius: 50%; height: 40px; width: 40px;"><div><p class="small p-2 ms-3 mb-1 rounded-3" id="messageBodyp" style="background-color: #f5f6f7;">' + response.result[i].contenuto + '</p></div></div>';
+                innhtml = innhtml + ' <div class="d-flex flex-row justify-content-start"><img src="' + this.store.immagineProfiloDest + '"alt="avatar 1" style="object-fit: cover; border-radius: 50%; height: 40px; width: 40px;"><p class="messageBodyDest small p-2 ms-3 mb-1 rounded-3">' + response.result[i].contenuto + '</p></div>';
               }
             }
           }
@@ -208,8 +208,24 @@ export default {
 <style src="../../assets/mdb.min.css" scoped></style>
 
 <style scoped>
-#messageBodyp{
-  max-width: 100px;
+.messageBody, .messageBodyDest{
+  max-width: 300px;
+}
+
+.messageBodyDest{
+  background-color: #f5f6f7;
+}
+
+@media screen and (max-width: 768px) {
+  .messageBody, .messageBodyDest{
+    max-width: 200px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .messageBody, .messageBodyDest{
+    max-width: 100px;
+  }
 }
 
 #userslist {
