@@ -94,7 +94,7 @@ export default {
           if (response.result != null) {
             for (let i = 0; i < response.result.length; i++) {
               if (response.result[i].mittente == true) {
-                innhtml = innhtml + '<div class="d-flex flex-row justify-content-end"><div><p class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary">' + response.result[i].contenuto + '</p></div><img src="' + imgprofile + '"alt="avatar 1" style="width: 45px; height: 100%;"></div>';
+                innhtml = innhtml + '<div class="d-flex flex-row justify-content-end"><div><p class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary">' + response.result[i].contenuto + '</p></div><img src="' + imgprofile + '"alt="avatar 1" style="object-fit: cover; border-radius: 50%; height: 40px; width: 40px;"></div>';
               }
               else {
                 innhtml = innhtml + ' <div class="d-flex flex-row justify-content-start"><img src="' + this.store.immagineProfiloDest + '"alt="avatar 1" style="object-fit: cover; border-radius: 50%; height: 40px; width: 40px;"><div><p class="small p-2 ms-3 mb-1 rounded-3" style="background-color: #f5f6f7;">' + response.result[i].contenuto + '</p></div></div>';
@@ -182,7 +182,7 @@ export default {
                     </div>
                     <div id="btchat" class="text-muted d-flex justify-content-start align-items-center pe-3 pt-3 mt-2">
                       <img :src="this.store.immagineProfilo"
-                        alt="avatar 3" style="width: 40px; height: 100%;">
+                        alt="avatar 3" style="width: 50px; height: 45px; border-radius: 50%; object-fit: cover;">
                       <input type="text" id="in" class="form-control form-control-lg" placeholder="Type message"
                         v-model="message">
                       <a v-if="this.activebutton == true" class="ms-3" style="cursor: pointer;"
