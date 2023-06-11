@@ -141,7 +141,7 @@ export default {
               accept="image/*">
             <img id="imgstoriacambia" :src="this.store.immagineProfilo" alt="">
           </div>
-          <label class="storiabtn" @click="CreateStory">click for create a story</label>
+          <label class="storiabtn" @click="CreateStory" style="cursor: pointer;">click for create a story</label>
           <button type="button" @click.prevent="PostStory" class="btn btn-primary" style="max-width: 100px;">Post</button>
         </form>
         <div class="row justify-content-center">
