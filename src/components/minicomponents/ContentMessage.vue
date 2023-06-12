@@ -189,7 +189,7 @@ export default {
                       <img :src="this.store.immagineProfilo" alt="avatar 3"
                         style="width: 50px; height: 45px; border-radius: 50%; object-fit: cover;">
                       <input type="text" id="in" class="form-control form-control-lg" placeholder="Type message"
-                        v-model="message">
+                        v-model="message" @keyup.enter="Publishe(this.store.myusername, this.store.userforMess, this.message)">
                       <a v-if="this.activebutton == true" class="ms-3" style="cursor: pointer;"
                         @click="Publishe(this.store.myusername, this.store.userforMess, this.message)">
                         <i class="fas fa-paper-plane" style="color: blue;"></i></a>
